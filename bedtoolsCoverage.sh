@@ -1,18 +1,9 @@
 #!/bin/bash
 
-L1=/mnt/project/location
-ALIGN=/mnt/project/STAR/mouse/output
-
 echo "Commencing program" > record.txt
 date >> record.txt
 
-THISL1=${L1}/L1_Mouse_bothorf.bed
-THISREAD=${ALIGN}/mm10Aligned.sortedByCoord.out.bam
-
-echo ${THISREAD} >> record.txt
-echo ${THISL1} >> record.txt
-
-bedtools coverage -counts -a ${THISL1} -b ${THISREAD} 
+bedtools coverage -counts -a /mnt/project/location/L1_Mouse_bothorf.bed -b /mnt/project/STAR/mouse/output/mm10Aligned.sortedByCoord.out.bam
 #-hist -F 0.2 -s -split 
 echo "Finishing at" >> record.txt 
 date >> record.txt 
