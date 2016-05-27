@@ -6,10 +6,13 @@ ALIGN=/mnt/project/STAR/mouse/output
 echo "Commencing program" > record.txt
 date >> record.txt
 
-echo ${ALIGN} >> record.txt
-echo ${L1} >> record.txt
+THISL1=${L1}/L1_Mouse_bothorf.bed
+THISREAD=${ALIGN}/mm10Aligned.sortedByCoord.out.bam
 
-#bedtools coverage -a ${L1}/L1_Mouse_bothorf.bed -b ${ALIGN}/mm10Aligned.sortedByCoord.out.bam >> record.txt
+echo ${THISREAD} >> record.txt
+echo ${THISL1} >> record.txt
+
+bedtools coverage -counts -a ${THISL1} -b ${THISREAD} 
 #-hist -F 0.2 -s -split 
 echo "Finishing at" >> record.txt 
 date >> record.txt 
