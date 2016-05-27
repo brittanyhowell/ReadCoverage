@@ -3,7 +3,7 @@
 echo "Commencing program" > record.txt
 date >> record.txt
 
-bedtools coverage  -a /mnt/project/STAR/mouse/output/mm10Aligned.sortedByCoord.out.bam  -b /mnt/project/location/L1_Mouse_bothorf.bed 
+bedtools coverage  -a /mnt/project/STAR/mouse/output/mm10Aligned.sortedByCoord.out.bam  -b /mnt/project/location/L1_Mouse_bothorf.bed > coverage.out
 #-hist -F 0.2 -s -split 
 echo "Finishing at" >> record.txt 
 date >> record.txt 
