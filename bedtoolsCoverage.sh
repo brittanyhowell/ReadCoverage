@@ -3,11 +3,14 @@
 echo "Commencing program" 
 date
 
-if [ -f coverage.out ];
-	then rm coverage.out
+READS=/mnt/project/STAR/mouse/output
+L1=/mnt/project/location
+
+if [ -f coverage-Rev-INTERSECTED.out ];
+	then rm coverage-Rev-INTERSECTED.out
 	fi  
 
-bedtools coverage -hist -F 0.2 -s -split  -a /mnt/project/STAR/mouse/output/mm10Aligned.sortedByCoord.out.bam  -b /mnt/project/location/L1_Mouse_bothorf.bed > coverage.out
+bedtools coverage -F 0.2 -s -split -hist  -a ${L1}/L1_Mouse_bothorf.bed  -b ${READS}/intersectBothORFMm10.bed > coverage-Rev-INTERSECTED.out
 
 echo "Finishing at" 
 date 
